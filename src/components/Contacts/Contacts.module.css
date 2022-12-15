@@ -9,7 +9,7 @@
     justify-content: space-between;
     align-items: center;
     border: 1px solid rgb(0, 0, 0);
-    width: 40%;
+    width: 30%;
  
 }
 .btnDelete{
@@ -24,5 +24,5 @@
 }
 .inputFilter{
     margin: 10px 0;
-width: 40%;
+width: 30%;
 }
