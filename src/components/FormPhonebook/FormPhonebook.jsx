@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import css from './FormPhonebook.module.css';
 
 class FormPhonebook extends React.Component {
@@ -57,5 +57,9 @@ class FormPhonebook extends React.Component {
     );
   }
 }
-
+FormPhonebook.propTypes = {
+  name: PropTypes.string,
+  number: PropTypes.string,
+  onSubmitForm: PropTypes.func,
+};
 export default FormPhonebook;

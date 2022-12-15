@@ -1,5 +1,6 @@
 import css from './Contacts.module.css';
-const Filter = ({ query, func }) => {
+import PropTypes from 'prop-types';
+const Filter = ({ query, filterContact }) => {
   return (
     <label className={css.labelFilter}>
       Find contacts by name
@@ -8,9 +9,13 @@ const Filter = ({ query, func }) => {
         type="text"
         name="filter"
         value={query}
-        onChange={func}
+        onChange={filterContact}
       />
     </label>
   );
+};
+Filter.propTypes = {
+  query: PropTypes.string,
+  filterContact: PropTypes.func,
 };
 export default Filter;
