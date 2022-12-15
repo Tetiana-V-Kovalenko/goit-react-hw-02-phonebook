@@ -46,9 +46,9 @@ export class App extends React.Component {
 
     return (
       <div>
-        <h1>Phonebook</h1>
+        <h1 style={{ marginLeft: '50px' }}>Phonebook</h1>
         <FormPhonebook onFormSubmit={this.onFormSubmit} />
-        <h2>Contacts</h2>
+        <h2 style={{ marginLeft: '50px' }}>Contacts</h2>
         <Filter query={filter} func={this.filterContacts} />
         {filter !== '' ? (
           <Contacts contacts={filterArr} onDeleteContact={this.deleteContact} />

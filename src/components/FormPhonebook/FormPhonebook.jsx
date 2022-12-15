@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import css from './FormPhonebook.module.css';
+import css from './FormPhonebook.module.css';
 
 class FormPhonebook extends React.Component {
   static defaultProps = {
@@ -25,9 +25,9 @@ class FormPhonebook extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.addContact}>
-        <label>
-          Name
+      <form onSubmit={this.addContact} className={css.form}>
+        <label className={css.inputPhonebook}>
+          Name:
           <input
             onChange={this.saveData}
             value={this.state.name}
@@ -38,8 +38,8 @@ class FormPhonebook extends React.Component {
             required
           />
         </label>
-        <label>
-          Number
+        <label className={css.inputPhonebook}>
+          Number:
           <input
             onChange={this.saveData}
             value={this.state.number}
@@ -50,7 +50,9 @@ class FormPhonebook extends React.Component {
             required
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button className={css.btnAddContact} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }

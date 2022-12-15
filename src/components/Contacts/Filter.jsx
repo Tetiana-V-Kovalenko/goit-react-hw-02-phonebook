@@ -1,8 +1,15 @@
+import css from './Contacts.module.css';
 const Filter = ({ query, func }) => {
   return (
-    <label>
+    <label className={css.labelFilter}>
       Find contacts by name
-      <input type="text" name="filter" value={query} onChange={func} />
+      <input
+        className={css.inputFilter}
+        type="text"
+        name="filter"
+        value={query}
+        onChange={func}
+      />
     </label>
   );
 };
