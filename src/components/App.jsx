@@ -17,15 +17,16 @@ export class App extends React.Component {
   };
 
   onFormSubmit = contact => {
-    if (!this.state.contacts.find(copy => copy.name === contact.name)) {
-      contact.id = nanoid();
-      this.setState(prevState => ({
-        contacts: [...prevState.contacts, contact],
-      }));
-    } else {
+    if (this.state.contacts.find(copy => copy.name === contact.name)) {
       alert(`${contact.name} is already in contacts`);
+      return;
     }
+    contact.id = nanoid();
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, contact],
+    }));
   };
+
   filterContacts = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -39,7 +40,6 @@ export class App extends React.Component {
 
   render() {
     const { contacts, filter } = this.state;
-
     const filterArr = contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
@@ -50,7 +50,9 @@ export class App extends React.Component {
         <FormPhonebook onFormSubmit={this.onFormSubmit} />
         <h2 style={{ marginLeft: '50px' }}>Contacts</h2>
         <Filter query={filter} filterContact={this.filterContacts} />
-        {filter !== '' ? (
+        {contacts.length === 0 ? (
+          <p style={{ marginLeft: '30px' }}>There are no contact</p>
+        ) : filter !== '' ? (
           <Contacts contacts={filterArr} onDeleteContact={this.deleteContact} />
         ) : (
           <Contacts contacts={contacts} onDeleteContact={this.deleteContact} />
